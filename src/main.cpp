@@ -42,7 +42,7 @@ void bluetoothControl4(){
 void readPrint5(){
   while (true)
   {
-    /* code */
+    readPrintPotVal(readerProfile[debug_sensor]);
   }
   
 } 

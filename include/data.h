@@ -35,9 +35,11 @@ struct sPosition {
 };
 
 // calibration data for hand.
+
 extern servoData handProfile[6];
 
 // calibration and state data for sensor.
+
 extern potData readerProfile[6];
 
 #endif

@@ -2,22 +2,29 @@
 #include <config.h>
 #include <data.h>
 
-String byteToStr(byte num){
+String byteToStr(byte num){ //verified
     String sOut = String(num);
-    if(sOut.length() < 3){
-        sOut = String(0)+sOut;
+    while(true){
+      if(sOut.length() > 2){
+        break;
+      }
+      sOut = String(0)+sOut;  
     }
     return sOut;
 }
-String intToStr(int num){
+String intToStr(int num){ //verified
     String sOut = String(num);
-    if(sOut.length() < 3){
-        sOut = String(0)+sOut;
+    while(true){
+      if(sOut.length() > 3){
+        break;
+      }
+      sOut = String(0)+sOut;  
     }
+    
     return sOut;
 }
 
-byte readPotVal(potData &pData) {
+byte readPotVal(potData &pData) { //verified
     int potVal = analogRead(pData.potPin); //reads value from pot
     
     potVal = map(potVal, pData.minP, pData.maxP, 0, 100); //map pot value
@@ -35,10 +42,10 @@ byte readPotVal(potData &pData) {
   return pData.potReading;
 }
 
-byte readPrintPotVal(potData &pData) {
-    Serial.println("pot: "+byteToStr(pData.potPin));
+byte readPrintPotVal(potData & pData) { 
+    Serial.println("pot: "+String(pData.potPin));
     int potVal = analogRead(pData.potPin); //reads value from pot
-    Serial.print("rawIN:"+byteToStr(potVal)+" ");
+    Serial.print("rawIN:"+intToStr(potVal)+" ");
     potVal = map(potVal, pData.minP, pData.maxP, 0, 100); //map pot value
     Serial.print("map:"+byteToStr(potVal)+" ");
     if (potVal <  0) {//constraints values 
@@ -51,14 +58,14 @@ byte readPrintPotVal(potData &pData) {
     //shuffles arround averages in memory
     pData.prevReading = pData.potReading;
     pData.potReading = (potVal + pData.prevReading) / 2;
-    Serial.print("avrOUT:"+intToStr(pData.potReading)+" ");
+    Serial.print("avrOUT:"+byteToStr(pData.potReading)+" ");
   
   return pData.potReading;
 }
 
 /*reads values from potentiomentes, and returns a position value*/
 sPosition readPotValPositions() {
-  sPosition inputPosition{
+  sPosition inputPosition{ //confirmed
     readPotVal(readerProfile[0]),
     readPotVal(readerProfile[1]),
     readPotVal(readerProfile[2]),
