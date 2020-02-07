@@ -25,7 +25,7 @@ void readMove2(){
 void readMoveDebug3(){
   while (true)
   {
-  sPosition currentPos = readPrintPotValPositions();
+  sPosition currentPos = readPotValPositions();
   movePrintHand(currentPos);
   }
   
