@@ -42,4 +42,8 @@ extern servoData handProfile[6];
 
 extern potData readerProfile[6];
 
+extern sPosition NUMBERONE;
+
+extern sPosition PEACE;
+
 #endif

@@ -7,10 +7,10 @@
 
 /*
     Mode 1: serial control
-    Mode 2: read sensor and move
-    Mode 3: debug mode read & move one servo
-    Mode 4: bluetooth controll
-    Mode 5: read and print
+    Mode 2: read sensor and move (deploy mode)
+    Mode 3: debug mode read & move
+    Mode 4: bluetooth control
+    Mode 5: read and print one sensor
 */ 
 extern byte mode;
 

@@ -19,5 +19,5 @@ servoData handProfile[6] {
   {"DISABLED",      9, 100, 900}
 };
 
-sPosition NUMBERONE {0, 0,  0, 90, 90};
-sPosition PEACE     {0, 0, 90, 90, 90};
+sPosition NUMBERONE {100, 100,  100, 100, 100};
+sPosition PEACE     {100, 100, 0, 0, 100};
