@@ -3,7 +3,17 @@
 #include <data.h>
 #include <hand.h>
 #include <sensor.h>
+#include <obsenity_filter.h>
 
+
+void childMode(){
+  sPosition currentPos = readPotValPositions();
+  while(isObsene(currentPos)){
+    currentPos = readPotValPositions();
+    moveHand(PEACE);
+  }
+}
+  
 
 void serialControl1(){
   while (true)
@@ -14,10 +24,20 @@ void serialControl1(){
 } 
 
 void readMove2(){
+  byte count =0;
   while (true)
   {
-  sPosition currentPos = readPotValPositions();
-  moveHand(currentPos);
+    count++;
+    
+    sPosition currentPos = readPotValPositions();
+
+    if(true){
+      if(isObsene(currentPos)){
+        childMode();
+      }
+    }
+
+    moveHand(currentPos);
   }
   
 } 
@@ -25,7 +45,7 @@ void readMove2(){
 void readMoveDebug3(){
   while (true)
   {
-  sPosition currentPos = readPrintPotValPositions();
+  sPosition currentPos = readPotValPositions();
   movePrintHand(currentPos);
   }
   
