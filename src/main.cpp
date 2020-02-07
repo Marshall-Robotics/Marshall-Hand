@@ -8,10 +8,12 @@
 
 void childMode(){
   sPosition currentPos = readPotValPositions();
+  transition(currentPos,PEACE);
   while(isObsene(currentPos)){
     currentPos = readPotValPositions();
     moveHand(PEACE);
   }
+  transition(PEACE, currentPos);
 }
   
 

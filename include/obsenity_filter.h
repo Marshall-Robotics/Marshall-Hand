@@ -9,4 +9,6 @@
 
 extern bool isObsene(sPosition pos);
 
+void transition(sPosition init, sPosition final);
+
 #endif
