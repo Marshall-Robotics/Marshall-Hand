@@ -14,3 +14,30 @@ ExecStop=/usr/bin/docker stop l4t-ml
 
 [Install]
 WantedBy=multi-user.target
+
+
+
+
+1. Reload `systemd`:
+   
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+
+2. Enable the service to start on boot:
+   
+   ```bash
+   sudo systemctl enable docker-l4t-ml.service
+   ```
+
+3. Optionally, start the service immediately without rebooting:
+   
+   ```bash
+   sudo systemctl start docker-l4t-ml.service
+   ```
+
+4. Check the service status to ensure it's running properly:
+   
+   ```bash
+   sudo systemctl status docker-l4t-ml.service
+   ```
