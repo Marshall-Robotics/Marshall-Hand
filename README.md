@@ -1,6 +1,10 @@
 # Marshall-Hand
 Code for a hand 
 
+```bash
+sudo vim /etc/systemd/system/docker-l4t-ml.service
+```
+
 ```
 [Unit]
 Description=Autostart l4t-ml Docker container
