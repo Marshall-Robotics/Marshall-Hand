@@ -1,10 +1,12 @@
 # Marshall-Hand
 Code for a hand 
 
+
+
 ```bash
 sudo vim /etc/systemd/system/docker-l4t-ml.service
 ```
-
+Paste this text 
 ```
 [Unit]
 Description=Autostart l4t-ml Docker container
@@ -12,17 +14,20 @@ Requires=docker.service
 After=docker.service
 
 [Service]
-Restart=always
-ExecStart=/usr/bin/docker run --runtime nvidia --rm --name l4t-ml-container --network host --volume /home/your_username/l4t-data --device /dev/video0 nvcr.io/nvidia/l4t-ml:r32.7.1-py3
+Restart=on-failure
+ExecStart=/usr/bin/docker run --runtime nvidia --name l4t-ml-container --network host --volume /home/felg/l4t-data --device /dev/video0 nvcr.io/nvidia/l4t-ml:r32.7.1-py3
 ExecStop=/usr/bin/docker stop l4t-ml-container
 
 [Install]
 WantedBy=multi-user.target
 
+
 ```
 Then press ESC
 
 then type ':wq'
+
+
 
 
 
