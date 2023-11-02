@@ -16,6 +16,9 @@ ExecStop=/usr/bin/docker stop l4t-ml
 WantedBy=multi-user.target
 
 ```
+Then press ESC
+
+then type ':wq'
 
 
 
