@@ -54,3 +54,47 @@ then type ':wq'
    ```bash
    sudo systemctl status docker-l4t-ml.service
    ```
+
+
+
+
+
+
+
+
+After Jupyter Notebook is running, open a terminal and run the following commands:
+
+   Clone NVIDIA AI IOT Github Repo to quick install pre-recs
+   ```bash
+   git clone https://github.com/NVIDIA-AI-IOT/torch2trt
+   ```
+
+   go into torch2trt folder
+   ```bash
+   cd torch2trt
+   ```
+
+   Install Pre-recs
+   ```bash
+   python3 setup.py install --plugins
+   ```
+
+   Install miscellaneous packages
+
+   ```bash
+   pip3 install tqdm cython pycocotools
+   ```
+
+   Install MathPlotLib
+
+   ```bash
+   apt-get install python3-matplotlib
+   ```
+
+   ```bash
+   git clone https://github.com/NVIDIA-AI-IOT/trt_pose
+   ```
+
+   cd trt_pose
+
+   python3 setup.py install
