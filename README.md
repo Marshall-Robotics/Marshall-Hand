@@ -98,3 +98,17 @@ After Jupyter Notebook is running, open a terminal and run the following command
    cd trt_pose
 
    python3 setup.py install
+
+
+
+
+   ```bash
+sudo docker run --name new_container_name --runtime nvidia -it \
+    -e DISPLAY=$DISPLAY \
+    --network host \
+    -v ~/l4t-data:/l4t-data \
+    --device /dev/video0 \
+    --device /dev/ttyUSB0 \
+    felipegalind0/trt_pose:v0 \
+    /trt_hand_pose/gesture_classification_live_demo_new.py
+```
