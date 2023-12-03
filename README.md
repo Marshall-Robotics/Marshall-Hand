@@ -103,12 +103,13 @@ After Jupyter Notebook is running, open a terminal and run the following command
 
 
    ```bash
-sudo docker run --name new_container_name --runtime nvidia -it \
+sudo docker run --name handV4 --runtime nvidia -it \
     -e DISPLAY=$DISPLAY \
     --network host \
     -v ~/l4t-data:/l4t-data \
     --device /dev/video0 \
-    --device /dev/ttyUSB0 \
-    felipegalind0/trt_pose:v0 \
-    /trt_hand_pose/gesture_classification_live_demo_new.py
+    --workdir /trt_hand_pose \
+    felipegalind0/trt_hand_pose:v4 \
+    ./gesture_classification_live_demo_new.py
+
 ```
