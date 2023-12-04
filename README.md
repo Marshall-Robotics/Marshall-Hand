@@ -140,3 +140,8 @@ sudo docker run --name handV5 --runtime nvidia -it \
     --workdir /trt_hand_pose \
     felipegalind0/trt_hand_pose:v5 \
 ```
+
+### enable xhost
+```bash
+xhost +local:docker
+```
