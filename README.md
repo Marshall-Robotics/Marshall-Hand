@@ -103,13 +103,15 @@ After Jupyter Notebook is running, open a terminal and run the following command
 
 
    ```bash
-sudo docker run --name handV4 --runtime nvidia -it \
+sudo docker run --name handV5 --runtime nvidia -it \
     -e DISPLAY=$DISPLAY \
     --network host \
     -v ~/l4t-data:/l4t-data \
     --device /dev/video0 \
+    --device /dev/ttyUSB0 \
     --workdir /trt_hand_pose \
-    felipegalind0/trt_hand_pose:v4 \
-    ./gesture_classification_live_demo_new.py
+    felipegalind0/trt_hand_pose:v5 \
+    python3 gesture_classification_print.py
+
 
 ```
