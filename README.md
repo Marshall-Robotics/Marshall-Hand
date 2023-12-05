@@ -112,7 +112,7 @@ sudo docker run --name handV7 --runtime nvidia -it \
     --device /dev/video* \
     --device /dev/ttyUSB* \
     --workdir /trt_hand_pose \
-    felipegalind0/trt_hand_pose:v67\
+    felipegalind0/trt_hand_pose:v7\
     python3 gesture_classification_print.py
 ```
 
