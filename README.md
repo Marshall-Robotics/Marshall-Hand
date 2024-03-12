@@ -3,7 +3,7 @@ Code for a hand
 
 https://z.umn.edu/M_H
 
-```bash
+<!-- ```bash
 sudo vim /etc/systemd/system/docker-l4t-ml.service
 ```
 Paste this text 
@@ -53,51 +53,141 @@ then type ':wq'
    
    ```bash
    sudo systemctl status docker-l4t-ml.service
-   ```
+   ``` -->
 
 
+## Manual Installation(Not Recommended, unless you want to learn or your Jetson Nano 2gb is brand new)
+
+### [Write Image (Jetson Nano 2gb)](jetson-nano-2gb-jp461-sd-card-image.zip) to SD Card using [balenaEtcher](https://etcher.balena.io/)
 
 
+### Pull the docker image 'nvcr.io/nvidia/l4t-ml:r32.7.1-py3' 
+```bash
+sudo docker pull nvcr.io/nvidia/l4t-ml:r32.7.1-py3
+```
 
+### Create a folder to store data
+```bash
+mkdir ~/l4t-data
+```
+
+### Plug in Logitech C270 Webcam & list USB devices to verify it is detected
+```bash
+lsusb
+```
+
+### Run the docker image 'nvcr.io/nvidia/l4t-ml:r32.7.1-py3' 
+```bash
+sudo docker run --runtime nvidia -it --network host --volume ~/l4t-data --device /dev/video0 nvcr.io/nvidia/l4t-ml:r32.7.1-py3
+```
 
 
 
 After Jupyter Notebook is running, open a terminal and run the following commands:
 
-   Clone NVIDIA AI IOT Github Repo to quick install pre-recs
+
+### Install torch2trt 
+
+   #### Clone torch2trt Repo to quick install pre-recs
    ```bash
    git clone https://github.com/NVIDIA-AI-IOT/torch2trt
    ```
 
-   go into torch2trt folder
+   #### Go into torch2trt folder
    ```bash
    cd torch2trt
    ```
 
-   Install Pre-recs
+   #### Install torch2trt Pre-recs (takes a while)
    ```bash
    python3 setup.py install --plugins
    ```
 
-   Install miscellaneous packages
-
+   #### Install miscellaneous packages
    ```bash
    pip3 install tqdm cython pycocotools
    ```
 
-   Install MathPlotLib
-
+   #### Install MathPlotLib
    ```bash
    apt-get install python3-matplotlib
    ```
 
+   #### go back to root
+   ```bash
+   cd /
+   ```
+
+   <br>
+
+### Install trt_pose
+
+   #### Clone trt_pose Repo to quick install pre-recs
    ```bash
    git clone https://github.com/NVIDIA-AI-IOT/trt_pose
    ```
 
+   #### Go into trt_pose folder
+   ```bash
    cd trt_pose
+   ```
 
+   #### Install trt_pose Pre-recs (takes a while)
+   ```bash
    python3 setup.py install
+   ```
+
+   #### Go back to root
+   ```bash
+   cd /
+   ```
+
+   <br>
+
+### Install jetcam 
+
+   #### Clone Jetcam Repo to quick install pre-recs
+   ```bash
+   git clone https://github.com/NVIDIA-AI-IOT/jetcam
+   ```
+
+   #### Go into jetcam folder
+   ```bash
+   cd jetcam
+   ```
+
+   #### Install jetcam Pre-recs (takes a while)
+   ```bash
+   python3 setup.py install
+   ```
+
+   #### Go back to root
+   ```bash
+   cd /
+   ```
+
+   <br>
+
+
+### Install trt_pose_hand
+
+   #### Clone trt_pose_hand Repo to quick install pre-recs
+   ```bash
+   git clone https://github.com/NVIDIA-AI-IOT/trt_pose_hand.git
+   ```
+
+
+   #### Go into trt_pose_hand folder
+   ```bash
+   cd trt_pose_hand
+   ```
+
+   #### Install scikit-learn
+   ```bash
+   pip3 install scikit-learn
+   ```
+
+   
 
 
 ## Start Docker Container 
